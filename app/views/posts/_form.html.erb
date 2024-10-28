@@ -1,0 +1,45 @@
+<%= form_with(model: post) do |form| %>
+  
+
+
+  <div>
+    <% invalid = post.errors.include?(:bands)%>
+      <%= form.label :bands, style: "display: block" %>
+      <%= form.text_field :bands %>
+      <% if invalid %>
+      <p style= "color:red">
+        <% post.errors.full_messages_for(:bands).join(" ,")%>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :time, style: "display: block" %>
+    <%= form.time_field :time %>
+
+  </div>
+
+  <div>
+    <%= form.label :event_date, style: "display: block" %>
+    <%= form.date_field :event_date %>
+  </div>
+
+  <div>
+    <%= form.label :membership_required, style: "display: block" %>
+    <%= form.check_box :membership_required %>
+  </div> 
+
+  <div>
+    <%= form.label :Suggested_Donation, style: "display: block" %>
+    <%= form.text_field :Suggested_Donation %>
+  </div>
+
+  <div>
+  <div>
+    <%= form.label :genre, "Genre", style: "display: block" %>
+    <%= form.select :genre, options_for_select(['Action', 'Comedy', 'Drama', 'Fantasy', 'Horror'], selected: @selected_genres), { multiple: true }, { id: "genre-select", data: { controller: "slim-select" } } %>
+  </div>
+  <%= form.file_field :image %>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<div id="<%= dom_id post %>" class="post-container">
+  <p>
+    <%= post.bands %>
+  </p>
+
+  <p>
+    <strong>Doors:</strong>
+    <%= post.time %>
+  </p>
+
+  <p>
+    <%= post.event_date %>
+  </p>
+
+  <p>
+    <strong>Membership required:</strong>
+    <%= post.membership_required %>
+  </p>
+
+  <p>
+    <strong>Suggested donation:</strong>
+    <%= post.Suggested_Donation %>
+  </p>
+
+  <p>
+    <strong>Genre:</strong>
+    <%= post.Genre %>
+  </p>
+
+      <p>
+      <%= link_to "", post,  class:"post-link" %>
+    </p>
+    <% post.image.each do |image| %>
+      <%= image_tag(image, style: "object-fit: contain; width: 300px; height: 300px; z-index: -1") %>
+    <% end %>
+
+</div>

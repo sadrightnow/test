@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag("post")%>
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Post" %>
+
+
+
+<div id="posts" class="text-center">
+  <h1>Gigs</h1>
+
+  <% @posts.each do |post| %>
+
+      <%= render post %>
+
+
+
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path %>
