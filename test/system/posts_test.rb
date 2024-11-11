@@ -14,9 +14,9 @@ class PostsTest < ApplicationSystemTestCase
     visit posts_url
     click_on "New post"
 
-    fill_in "Genre", with: @post.Genre
-    fill_in "Suggested donation", with: @post.Suggested_Donation
-    fill_in "Bands", with: @post.bands
+    fill_in "genre", with: @post.genre
+    fill_in "suggested donation", with: @post.Suggested_Donation
+    fill_in "event_name", with: @post.event_name
     fill_in "event_date", with: @post.event_date
     fill_in "Membership required", with: @post.membership_required
     fill_in "Time", with: @post.time
@@ -30,9 +30,9 @@ class PostsTest < ApplicationSystemTestCase
     visit post_url(@post)
     click_on "Edit this post", match: :first
 
-    fill_in "Genre", with: @post.Genre
-    fill_in "Suggested donation", with: @post.Suggested_Donation
-    fill_in "Bands", with: @post.bands
+    fill_in "genre", with: @post.genre
+    fill_in "suggested donation", with: @post.Suggested_Donation
+    fill_in "event_name", with: @post.event_name
     fill_in "event_date", with: @post.date
     fill_in "Membership required", with: @post.membership_required
     fill_in "Time", with: @post.time

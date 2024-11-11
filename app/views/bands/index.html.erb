@@ -1,0 +1,38 @@
+<%= form_with(url: bands_path, method: :get, local: true) do |form| %>
+  <div class="form-group">
+    <%= form.check_box :local, { id: "local-checkbox" }, "1", "0" %>
+    <%= form.label :local, "Show only local bands", class: "form-label" %>
+  </div>
+  <%= form.submit "Apply Filter", class: "btn btn-primary" %>
+<% end %>
+
+<table class="bands-table">
+  <thead>
+    <tr>
+      <th>Band Name</th>
+      <th>Genre</th>
+      <th>Location</th>
+      <th>Email</th>
+      <th>Social Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bands.each do |band| %>
+      <tr>
+        <td>
+          <%= link_to band.band_name, band_path(band) %> <!-- Make the band name a link -->
+        </td>
+        <td><%= band.genre %></td>
+        <td><%= band.band_location %></td>
+        <td><%= band.band_email %></td>
+        <td>
+          <a href="<%= band.band_bandcamp_link %>" target="_blank">Bandcamp</a>
+          <a href="<%= band.band_instagram_link %>" target="_blank">Instagram</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to "New band", new_band_path %>

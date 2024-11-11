@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_24_232523) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_10_221430) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,25 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_232523) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bands", force: :cascade do |t|
+    t.string "band_name"
+    t.string "genre"
+    t.string "band_bandcamp_link"
+    t.string "band_instagram_link"
+    t.string "band_description"
+    t.string "band_location"
+    t.string "band_email"
+    t.string "band_ffo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "local"
+  end
+
+  create_table "bands_posts", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "band_id", null: false
+  end
+
   create_table "installs", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -56,10 +75,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_232523) do
     t.string "time"
     t.string "event_date"
     t.string "membership_required"
-    t.string "Suggested_Donation"
-    t.string "Genre"
+    t.string "suggested_donation"
+    t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visibility"
+    t.string "event_name"
   end
 
   create_table "user_ls", force: :cascade do |t|

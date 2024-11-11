@@ -1,37 +1,52 @@
 <div id="<%= dom_id post %>" class="post-container">
-  <p>
-    <%= post.bands %>
-  </p>
 
-  <p>
-    <strong>Doors:</strong>
-    <%= post.time %>
-  </p>
-
-  <p>
-    <%= post.event_date %>
-  </p>
-
-  <p>
-    <strong>Membership required:</strong>
-    <%= post.membership_required %>
-  </p>
-
-  <p>
-    <strong>Suggested donation:</strong>
-    <%= post.Suggested_Donation %>
-  </p>
-
-  <p>
-    <strong>Genre:</strong>
-    <%= post.Genre %>
-  </p>
-
-      <p>
-      <%= link_to "", post,  class:"post-link" %>
-    </p>
+  <div class="post-image-container">
+  <% if post.image.attached? %>
     <% post.image.each do |image| %>
-      <%= image_tag(image, style: "object-fit: contain; width: 300px; height: 300px; z-index: -1") %>
+      <%= image_tag(image, class: "post-image") %>
     <% end %>
+  <% else %>
+    <div class="placeholder">No Image Available</div>
+  <% end %>
+</div>
+
+  <p>
+  <p style="text-align: center; font-size: 20px;">
+    <strong><%= post.event_name %></strong>
+  </p>
+
+
+  <p style="text-align: center; font-size: 10px; color: grey;">
+     <%= post.genre %>
+  </p>
+
+  <p style="text-align: center; font-size: 10px; color: grey;">
+     <%= Time.parse(post.time).strftime('%l:%M %p').strip %>
+  </p>
+
+  <div class="date-overlay">
+    <span class="day"><%= Date.parse(post.event_date).strftime('%a') %></span>
+    <span class="date"><%= Date.parse(post.event_date).strftime('%d') %></span>
+    <span class="month"><%= Date.parse(post.event_date).strftime('%b') %></span>
+  </div>
+
+  <p style="text-align: center; font-size: 10px; color: grey;">
+    <strong>Suggested donation:</strong> <%= post.suggested_donation %>
+    <% if post.membership_required == "1" %>
+       + ($5 annual membership)
+  <% end %>
+  </p>
+
+
+
+
+  <p>
+    <%= link_to "", post,  class:"post-link" %>
+
+
+    <% if post.visibility == false %>
+      <span style="color: red; font-size: 10px;">Event is not public</span>
+    <% end %>
+  </p>
 
 </div>

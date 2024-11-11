@@ -1,20 +1,46 @@
- <html>
+<html>
 <head>
-<style>
-footer {
-  text-align: center;
-  padding: 3px;
-  background-color: DarkSalmon;
-  color: white;
-}
-</style>
+  <style>
+    footer {
+      text-align: center;
+      padding: 3px;
+      background-color: white;
+      color: white;
+    }
+
+    footer .nav-link {
+      color: grey; /* Make the links black */
+      text-decoration: none; /* Remove underline */
+      margin: 0 10px; /* Add space between the links */
+      font-weight: bold; /* Make the text bold */
+    }
+
+    footer .nav-link:hover {
+      text-decoration: underline; /* Add underline on hover */
+    }
+
+    footer .nav-links {
+      display: flex; /* Use flexbox to arrange links horizontally */
+      justify-content: center; /* Center the links horizontally */
+      padding: 0; /* Remove any default padding */
+      list-style: none; /* Remove default list styling */
+    }
+  </style>
 </head>
 <body>
 
 <footer>
-  <p>Perry<br>
-  <a href="froelichperry1@gmail.com">froelichperry1@gmail.com</a></p>
+  <div class="nav-links">
+    <a class="nav-link" href="/user_ls/sign_up">Signup</a>
+    <% if user_l_signed_in? %>
+      <a class="nav-link" href="<%= destroy_user_l_session_path %>">Sign Out</a>
+    <% else %>
+      <a class="nav-link" href="/user_ls/sign_in">Signin</a>
+    <% end %>
+    <a class="nav-link" href="<%= edit_user_l_registration_path %>">Edit Account</a>
+    <a class="nav-link" href="/bands">Bands</a> <!-- Link to the Band index page -->
+  </div>
 </footer>
 
 </body>
-</html> 
+</html>

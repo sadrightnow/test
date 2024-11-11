@@ -1,10 +1,67 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'post_show', media: 'all' %>
+<%= stylesheet_link_tag 'band_show', media: 'all' %>
 
-<%= render @post %>
+<div class="post-show-container">
+  <!-- Title -->
+  <div class="event-info">
+    <div class="event-title-container">
+      <h1 class="event-title"><%= @post.event_name %></h1>
+    </div>
+  </div>
 
+  <!-- Date, Time, Suggested Donation, and Membership -->
+  <div class="event-meta">
+    <p class="event-time">
+      <%= Date.parse(@post.event_date).strftime('%B %d, %Y') %> @ 
+      <%= Time.parse(@post.time).strftime('%l:%M %p').strip %>
+    </p>
+    <p class="event-cost">
+      <%= @post.suggested_donation %>
+    </p>
+    <% if @post.membership_required == "1" %>
+      <p class="membership-required">($5 annual membership required)</p>
+    <% end %>
+  </div>
+
+  <!-- Poster -->
+  <div class="poster-container">
+    <% if @post.show_poster.attached? %>
+      <%= image_tag @post.show_poster.first, class: "show-poster" %>
+    <% else %>
+      <p>No Show Poster Available</p>
+    <% end %>
+  </div>
+
+  <!-- Genre -->
+  <div class="event-details">
+    <p><strong>Genre:</strong> <%= @post.genre %></p>
+  </div>
+
+  <!-- Bands -->
+  <div class="event-bands">
+    <h3>Bands:</h3>
+    <% if @bands.any? %>
+      <div class="bands-list">
+        <% @bands.each do |band| %>
+          <%= render 'bands/show', band: band %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>No bands associated with this event.</p>
+    <% end %>
+  </div>
+
+  <!-- Back Link -->
+  <div class="back-link">
+    <%= link_to "Back to All Posts", posts_path %>
+  </div>
+</div>
+
+<!-- Edit & Destroy Links -->
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
 
   <%= button_to "Destroy this post", @post, method: :delete %>
 </div>
+

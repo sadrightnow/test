@@ -1,48 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Seventh Circle Music Collective</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/posts/">Shows</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home/contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user_ls/sign_up">Signup</a>
-        </li>
-       
-        <% if user_l_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Sign Out",
-            destroy_user_l_session_path, class:"nav-link"%>
-          </li>
-        <% else %>
-          <li class="nav-item">
-          <a class="nav-link" href="/user_ls/sign_in">Signin</a>
-        <% end -%>
-
-
-        </li>
-           <li class="nav-item">
-          <%= link_to "Edit Account",
-          edit_user_l_registration_path, class:"nav-link"%>
-        </li>
-      
-
-
-
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Navbar Links -->
+    <div class="navbar-links">
+      <ul>
+        <li><a href="/posts/">Shows</a></li>
+        <li><a href="/home/about">About</a></li>
+        <li><a href="/home/contact">Contact</a></li>
       </ul>
     </div>
   </div>

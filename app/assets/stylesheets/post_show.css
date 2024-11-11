@@ -1,0 +1,80 @@
+.post-show-container {
+  max-width: 800px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.event-info {
+  text-align: center;
+}
+
+.event-title-container {
+  width: 100%;
+  max-width: 600px; /* Match the max width of the poster */
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto;  /* Center the title */
+}
+
+.event-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  word-wrap: break-word;  /* Ensure long titles don't overflow */
+  line-height: 1.2;
+  text-transform: capitalize; /* Optional: Capitalize the first letter of each word */
+}
+
+.event-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2em;
+  color: grey;
+}
+
+.event-meta p {
+  margin: 0;
+}
+
+.event-time {
+  white-space: nowrap;
+}
+
+.event-cost, .membership-required {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.poster-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.show-poster {
+  max-width: 600px;  /* Limit the width of the poster */
+  width: 100%;       /* Allow it to scale responsively */
+  height: auto;      /* Maintain the aspect ratio */
+  object-fit: contain;
+}
+
+.event-details {
+  text-align: center;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.event-details p {
+  margin: 10px 0;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}

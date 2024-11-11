@@ -1,17 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  bands: MyString
+  event_name: MyString
   time: MyString
   event_date: MyString
   membership_required: MyString
   Suggested_Donation: MyString
-  Genre: MyString
+  genre: MyString
 
 two:
-  bands: MyString
+  event_name: MyString
   time: MyString
   event_date: MyString
   membership_required: MyString
   Suggested_Donation: MyString
-  Genre: MyString
+  genre: MyString

@@ -1,0 +1,48 @@
+/* Basic Navbar Styles */
+.navbar {
+  background-color: white;  /* White background */
+  padding: 10px;
+  box-shadow: none;  /* No box shadow */
+  border: none;  /* Remove border if any */
+  width: 100%;  /* Ensure the navbar takes the full width */
+  display: flex;
+  justify-content: center;  /* Center the navbar content */
+  border-bottom: 1px solid #ccc;  /* Add a 1px grey line under the navbar */
+}
+
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  justify-content: center;  /* Center content horizontally */
+  align-items: center;  /* Center content vertically */
+  width: 100%;  /* Ensure full width */
+}
+
+/* Navbar links */
+.navbar-links {
+  display: flex;
+  justify-content: center;  /* Center the links */
+}
+
+.navbar-links ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links ul li {
+  margin: 0 15px;  /* Space out the links */
+}
+
+.navbar-links ul li a {
+  text-decoration: none;
+  color: black;  /* Black text */
+  font-weight: bold;  /* Bold text */
+  padding: 10px;
+}
+
+.navbar-links ul li a:hover {
+  color: black;  /* Ensure text remains black on hover */
+  text-decoration: underline;  /* Underline on hover */
+}

@@ -3,14 +3,17 @@
 
 <% content_for :title, "Post" %>
 
+<div style="text-align: center;">
+  <%= image_tag '7C Mammoth Vector.png', alt: '7C Mammoth Vector', style: 'width: 35%; height: auto;' %>
+</div>
 
 
-<div id="posts" class="text-center">
-  <h1>Gigs</h1>
+<div id="posts" class="posts-grid">
+  
 
   <% @posts.each do |post| %>
 
-      <%= render post %>
+    <%= render post %>
 
 
 

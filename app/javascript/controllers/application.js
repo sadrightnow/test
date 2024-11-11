@@ -1,3 +1,13 @@
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize Slim Select on the band select element
+  new SlimSelect({
+    select: '#band_select', // The ID of your select element
+    closeOnSelect: false // Optional: allows multiple selections
+  });
+});
 
 
 const application = Application.start()
